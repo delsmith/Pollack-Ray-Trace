@@ -57,7 +57,7 @@ public class PlaneDetector extends Plane implements Detector {
 		 * This Detector will absorb the light
 		 * Every point absorbed is added to the display;
 		 */
-		double nz = (this.normal).dot (new Vector3d (0, 0, 1));
+//		double nz = (this.normal).dot (new Vector3d (0, 0, 1));
 		double nx = (this.normal).dot (new Vector3d (1, 0, 0));
 		double ny = (this.normal).dot (new Vector3d (0, 1, 0));
 		double x, y;

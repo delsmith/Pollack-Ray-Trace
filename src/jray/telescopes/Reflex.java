@@ -211,8 +211,8 @@ public class Reflex implements Telescope {
 			double c = mFactor*(dFocus1*dFocus1);
 */
 			double a = (dFinal-dFocus1);
-			double b = -(dFocus1*dFocus1);
-			double c = mFactor*(dFocus1*dFocus1)*(dFinal-dFocus1);
+//			double b = -(dFocus1*dFocus1);
+//			double c = mFactor*(dFocus1*dFocus1)*(dFinal-dFocus1);
 			double t1 = 2.0 * Math.sqrt(mFactor) * (dFinal-dFocus1)/dFocus1;
 			double DISC = /* b*b - 4.0*a*c */
 						dFocus1*dFocus1*Math.sqrt((1-t1)*(1+t1));

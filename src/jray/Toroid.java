@@ -96,8 +96,6 @@ public class Toroid implements ConicSection {
 		Transform3D lookAt = new Transform3D ();
 		lookAt.mul (new Transform3D (mid, new Vector3d (vertex), 1.0),
 					new Transform3D (mrt, new Vector3d (), 1.0));
-		double x0 = vertex.x;
-		double z0 = vertex.z;
 		for (int i = 0; i < scale * size; i ++) {
 			double x = 0.5 * size * (-1.0 + (2.0 * i) / (scale * size - 1.0));
 			double z = b - Math.sqrt (b*b - x*x);
@@ -175,7 +173,7 @@ public class Toroid implements ConicSection {
 		double g2 = pos.x*vel.x*pos.y*vel.y +
 			pos.x*vel.x*pos.z*vel.z + 
 			pos.y*vel.y*pos.z*vel.z;
-		double tz = vel.z * pos.z;
+//		double tz = vel.z * pos.z;
 		c[4] = 1.0;
 		c[3] = 4.0 * gp;
 		c[2] = 2.0 * ( -b*b+ a*a*(2*vel.x*vel.x - 1.0) + 4 * g2

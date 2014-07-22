@@ -10,8 +10,9 @@ import jray.evol.DetectorCurvature;
 import jray.evol.DetectorPosition;
 import jray.telescopes.*;
 
-import javax.vecmath.*;
+//import javax.vecmath.*;
 import com.sun.image.codec.jpeg.*;
+
 import java.awt.*;
 import java.awt.image.*;
 import java.io.*;
@@ -46,11 +47,13 @@ public class Ray {
 	static double  radius  = 0.0;
 	static double  zoom = 0.0, xcenter = 0.0, ycenter = 0.0;
 
-	public static void main (String[] args) {
-		
+
+public static void main (String[] args) {
 //		Vector3d v = new Vector3d ();
 		TelePar p = new TelePar ();
 		ProcessArgs (args, p);
+
+		@SuppressWarnings("unused")
 		Ray m = new Ray (p);
 	}
 
