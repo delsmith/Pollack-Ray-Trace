@@ -1,8 +1,11 @@
 package jray;
 
 import javax.vecmath.Point2d;
+
 import java.util.Vector;
+
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -13,6 +16,13 @@ import java.awt.event.*;
  */
 public class DetectorDisplay extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7895140637052890792L;
+	/**
+	 * 
+	 */
 	/** Maximum spot size (returned for spot sizes less than 0) */
 	public final static double SPOTMAX = 1000.;
 	/** Number of tick marks on the display */
@@ -29,8 +39,8 @@ public class DetectorDisplay extends JFrame {
 	private double yiLIN   = 0;
 	private double xcenter = 0;
 	private double ycenter = 0;
-	private Vector points;
-	private Vector colors;
+	private Vector<Point2d> points;
+	private Vector<Color> colors;
 
 	/** Create display with title and linear size of detector */
 	public DetectorDisplay (String title, double s) {
@@ -44,8 +54,8 @@ public class DetectorDisplay extends JFrame {
 		this.SCALE   = this.SIZE / this.LINEAR;
 		this.ySCALE   = this.SIZE / this.yLINEAR;
 		setSize (SIZE + 2 * BORDER, SIZE + 2 * BORDER);
-		this.points = new Vector ();
-		this.colors = new Vector ();
+		this.points = new Vector<Point2d> ();
+		this.colors = new Vector<Color> ();
 
 		// Add a TextBox for dynamic zooming
 		TextField zxbox = new TextField ("ZX", 7);
@@ -73,8 +83,8 @@ public class DetectorDisplay extends JFrame {
 		points.add (p);
 		colors.add (c);
 	}
-	public Vector getPoints () { return points; }
-	public Vector getColors () { return colors; }
+	public Vector<Point2d> getPoints () { return points; }
+	public Vector<Color> getColors () { return colors; }
 
 	/** paint the display */
 	public void paint (Graphics g) {
@@ -133,8 +143,8 @@ public class DetectorDisplay extends JFrame {
 
 	/** Removes all points from the DetectorDisplay */
 	public void clean () {
-		this.points = new Vector ();
-		this.colors = new Vector ();
+		this.points = new Vector<Point2d> ();
+		this.colors = new Vector<Color> ();
 	}
 	/** Set the size of the circular pixels */
 	public void setPixel (int i) {this.DOT = Math.abs (i);}

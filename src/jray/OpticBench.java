@@ -13,7 +13,11 @@ import javax.vecmath.Point3d;
 /** An optical bench for displaying a Telescope and LightRays */
 public class OpticBench extends JFrame {
 
-    public  static int XSIZE = 1000;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 6612217876572904363L;
+	public  static int XSIZE = 1000;
 	public  static int YSIZE = 1000;
 	public  static final int XSCALE = 1600;//1500//8000
 	private static final double xtraScale = 2.0;
@@ -25,9 +29,9 @@ public class OpticBench extends JFrame {
 	private double END_TIME = 10000;
 	private double time = 0;
 
-	private Vector cs; // The ConicSections
-	private Vector lr; // The LightRays
-	private Vector focus; // The Focii
+	private Vector<ConicSection> cs; // The ConicSections
+	private Vector<LightRay> lr; // The LightRays
+	private Vector<Point3d> focus; // The Focii
 	private boolean SECONDARY = false;		// true, if Gregorian or Cassegrain
 	private boolean REFLEX = false;			// true, if Folded (Loveday or Reflex)
 	private boolean display;
@@ -54,9 +58,9 @@ public class OpticBench extends JFrame {
 		setTitle (title);
 		setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
 		setSize (XSIZE, YSIZE);
-		cs = new Vector ();
-		lr = new Vector ();
-		focus = new Vector ();
+		cs = new Vector<ConicSection> ();
+		lr = new Vector<LightRay> ();
+		focus = new Vector<Point3d> ();
 		this.addComponentListener (new ReSize (this));
 		this.display = display;
 		setVisible (display);
@@ -72,7 +76,7 @@ public class OpticBench extends JFrame {
 	/** Adds a Focus to the Bench (plotted as a Red Dot) */
 	public void addFocus (Point3d p) { focus.add (p); } 
 	/** Removes all LightRays from the Bench */
-	public void clean () { lr = new Vector (); }
+	public void clean () { lr = new Vector<LightRay> (); }
 
 	/** Adds a complete Telescope to this Bench */
 	public void addTelescope (Telescope t) {
@@ -195,6 +199,8 @@ public class OpticBench extends JFrame {
 						start++;
 					}
 					css = 2;
+				}
+				else if (REFLEX) {
 				}
 				
 				// Now trace through the remaining optics until the Detector

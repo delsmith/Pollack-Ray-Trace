@@ -2,7 +2,7 @@ package jray;
 
 import javax.vecmath.*;
 
-import jray.EllipticGrating;
+// import jray.EllipticGrating;
 
 /** Spherical Grating disperses light
  * @deprecated as of the creation of this class

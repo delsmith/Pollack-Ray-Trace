@@ -35,9 +35,8 @@ import java.awt.Color;
  */
 public class Wavelength {
 
-   private static final String EmbeddedCopyright =
-   "Copyright 1998,1999 Roedy Green, Canadian Mind Products, http://mindprod.com";
-
+/**
+   "Copyright 1998,1999 Roedy Green, Canadian Mind Products, http://mindprod.com";*/
 
    /**
     * Creates a Color object given the wavelength instead of the

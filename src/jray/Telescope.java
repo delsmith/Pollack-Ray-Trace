@@ -15,7 +15,7 @@ public interface Telescope {
 	/** Return the ConicSection at position i */
 	public ConicSection getConicSection (int i);
 	/** Return the Vector containing all of the ConicSections */
-	public Vector getConicSections ();
+	public Vector<ConicSection> getConicSections ();
 	/** add a ConicSection to the end of list of ConicSections */
 	public void addConicSection (ConicSection cs);
 	/** Optimum Hole Size in Primary Mirror */

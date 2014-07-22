@@ -1,7 +1,9 @@
 package jray.telescopes;
 
 import jray.*;
+
 import java.util.Vector;
+
 import javax.vecmath.*;
 
 /** Generic Gregorian Telescope */
@@ -12,7 +14,7 @@ public class Gregorian implements Telescope {
 	protected double diameter, fratio, holesize;
 	protected double focusAt, fdesired;
 	protected double optHole, FOV;
-	protected Vector ConicSections;
+	protected Vector<ConicSection> ConicSections;
 	protected Point3d focus1, focus2;
 	protected boolean hasDet = false;
 
@@ -62,7 +64,7 @@ public class Gregorian implements Telescope {
 
 		l = secondary.reflect (l);
 		optHole = Math.abs (2.0 * (primary.intersect (l)).x);
-		ConicSections = new Vector ();
+		ConicSections = new Vector<ConicSection> ();
 		ConicSections.add (primary);
 		ConicSections.add (secondary);
 	} // end of Gregorian Constructor ******************************************
@@ -76,7 +78,7 @@ public class Gregorian implements Telescope {
 		return ((ConicSection) ConicSections.get (i)); 
 	}
 	/** Return the Vector containing all of the ConicSections */
-	public Vector getConicSections () { return ConicSections; }
+	public Vector<ConicSection> getConicSections () { return ConicSections; }
 	/** add a ConicSection to the end of list of ConicSections */
 	public void addConicSection (ConicSection cs) { ConicSections.add (cs); }
 	/** A generic telescope does not have a detector.  But subclasses can. */

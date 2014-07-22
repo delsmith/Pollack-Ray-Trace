@@ -1,7 +1,9 @@
 package jray.telescopes;
 
 import jray.*;
+
 import java.util.Vector;
+
 import javax.vecmath.*;
 
 /** Reflex Telescope */
@@ -60,7 +62,7 @@ public class Reflex implements Telescope {
 	protected double diameter, fratio, holesize;
 	protected double focusAt, fdesired;
 	protected double optHole, FOV;
-	protected Vector ConicSections;
+	protected Vector<ConicSection> ConicSections;
 	protected Point3d focus1, focus2, focus3;
 	protected boolean hasDet = false;
 
@@ -123,7 +125,7 @@ public class Reflex implements Telescope {
 		
 		// Detector will be behind Secondary, after third reflection off Primary 
 		secondary = new Paraboloid ( vertex2, new Point3d (a, a, 1), diameter2, holesize);
-		ConicSections = new Vector ();
+		ConicSections = new Vector<ConicSection> ();
 		ConicSections.add (primary);
 		ConicSections.add (secondary);
 		ConicSections.add (primary);
@@ -149,7 +151,7 @@ public class Reflex implements Telescope {
 		return ((ConicSection) ConicSections.get (i)); 
 	}
 	/** Return the Vector containing all of the ConicSections */
-	public Vector getConicSections () { return ConicSections; }
+	public Vector<ConicSection> getConicSections () { return ConicSections; }
 	/** add a ConicSection to the end of list of ConicSections */
 	public void addConicSection (ConicSection cs) { ConicSections.add (cs); }
 	/** A generic telescope does not have a detector.  But subclasses can. */

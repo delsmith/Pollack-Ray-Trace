@@ -5,6 +5,7 @@
 		<accessrules>
 			<accessrule kind="accessible" pattern="javax/vecmath/**"/>
 			<accessrule kind="accessible" pattern="javax/media/j3d/**"/>
+			<accessrule kind="accessible" pattern="com/sun/image/codec/jpeg/**"/>
 		</accessrules>
 	</classpathentry>
 	<classpathentry kind="output" path="bin"/>

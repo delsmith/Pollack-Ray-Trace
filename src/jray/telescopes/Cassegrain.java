@@ -1,7 +1,9 @@
 package jray.telescopes;
 
 import jray.*;
+
 import java.util.Vector;
+
 import javax.vecmath.*;
 
 /** Generic Cassegrain Telescope */
@@ -13,8 +15,8 @@ public class Cassegrain implements Telescope {
 	protected double diameter, fratio, holesize;
 	protected double focusAt, fdesired;
 	protected double optHole, FOV;
-	protected Vector ConicSections;
-	protected Vector focii;
+	protected Vector<ConicSection> ConicSections;
+	protected Vector<Point3d> focii;
 	protected boolean hasDet = false;
 
 	/** Construct a Cassegrain Telescope with parameters TelePar */
@@ -52,12 +54,12 @@ public class Cassegrain implements Telescope {
 			new Hyperboloid (new Point3d (0, 0, hyperv),
 							 new Point3d (hyperb, hyperb, hypera), 
 							 hypers);
-		focii = new Vector ();
+		focii = new Vector<Point3d> ();
 		focii.add (focus1);
 		focii.add (secondary.getFocus (1));
 		l = secondary.reflect (l);
 		optHole = Math.abs (2.0 * (primary.intersect (l)).x);
-		ConicSections = new Vector ();
+		ConicSections = new Vector<ConicSection> ();
 		ConicSections.add (primary);
 		ConicSections.add (secondary);
 	} // end of Cassegrain Constructor *****************************************
@@ -71,7 +73,7 @@ public class Cassegrain implements Telescope {
 		return ((ConicSection) ConicSections.get (i));
 	}
 	/** Return the Vector containing all of the ConicSections */
-	public Vector getConicSections () { return ConicSections; }
+	public Vector<ConicSection> getConicSections () { return ConicSections; }
 	/** add a ConicSection to the end of list of ConicSections */
 	public void addConicSection (ConicSection c) { ConicSections.add (c); }
 	/** A generic telescope does not have a detector.  But subclasses can. */

@@ -26,7 +26,7 @@ public class Toroid implements ConicSection {
 	/** The Global Transform3D for this object */
 	protected Transform3D toWorld, toTorus;
 	/** collection of points for the Evaluate function */
-	private Vector points;
+	private Vector<Point2d> points;
 	/** finness of said points in the x-direction */
 	private int scale = 10;
 
@@ -88,7 +88,7 @@ public class Toroid implements ConicSection {
 	} // end of Evaluate *******************************************************
 
 	private void createPoints () {
-		points = new Vector ();
+		points = new Vector<Point2d> ();
 		Matrix3d mid = new Matrix3d ();
 		mid.setIdentity ();
 		Matrix3d mrt = new Matrix3d ();
